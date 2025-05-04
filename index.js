@@ -4,7 +4,7 @@ var fs = require('fs');
 
 imageDBConfig = {
     user: 'sa',
-    password: 'Mb~1234567',
+    password: '123',
     server: 'server',
     database: 'pic1001',
     "options": {
@@ -60,7 +60,7 @@ const createFile = (fSignData, filename) => {
 
 const recoverPic = async() =>{
     let result = await new Promise(async (resolve, reject) => {
-        var sqlQuery = `SELECT TOP 1000 [Radif],[HesabNo],[KindHesab],[fSign],[filename],[lChang]  FROM [PIC1001].[dbo].[HesabPic]`;
+        var sqlQuery = `SELECT TOP 10 [Radif],[HesabNo],[KindHesab],[fSign],[filename],[lChang]  FROM [PIC1001].[dbo].[HesabPic]`;
         try {
             await sql.connect(imageDBConfig);
             const resultDB = await sql.query(sqlQuery);
